@@ -6,7 +6,7 @@
 
 const cards = [
     '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼',
-        '🐯', '🦁', '🐮', '🐷', '🐸', '🐵', '🐔', '🐧'
+    '🐯', '🦁', '🐮', '🐷', '🐸', '🐵', '🐔', '🐧'
 ];
 
 let selectedCardElements = [];
@@ -178,9 +178,7 @@ function calculatePoints(elapsedTime) {
   
     if (elapsedTime > maxTime) {
       timePoints = Math.floor(maxPoints - ((elapsedTime - maxTime) * bonusMultiplier));
-      if (timePoints < minPoints) {
-        timePoints = minPoints;
-      }
+
     } 
     bonusPoints += timePoints;                  // Sumar los puntos obtenidos por tiempo a los puntos de bonificación
   

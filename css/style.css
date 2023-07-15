@@ -39,7 +39,9 @@
 .card {
     width: 100%;
     height: 100px;
-    background-color: #f1f1f1;
+    background-image: url(img/galaxy.png);
+    background-size: cover;
+    background-position: center;
     border-radius: 4px;
     cursor: pointer;
     display: flex;
@@ -47,6 +49,7 @@
     align-items: center;
     font-size: 24px;
 }
+
 
 .restart-button {
     padding: 10px 20px;
@@ -113,22 +116,6 @@
     margin-bottom: 10px;
 }
 
-/* Estilos para pantallas pequeñas */
-@media screen and (max-width: 600px) {
-    .memory-game {
-        max-width: 100%;
-    }
-    
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .card {
-        height: 80px;
-        font-size: 20px;
-    }
-}
-
 /* Estilos para pantallas medianas */
 @media screen and (min-width: 601px) and (max-width: 900px) {
     .memory-game {
@@ -137,10 +124,64 @@
     
     .grid {
         grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
     }
     
-    .card {
+    .grid .card {
         height: 100px;
         font-size: 24px;
     }
+    
+    .text-right {
+        position: static;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .rules {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .restart-button {
+        position: static;
+        margin-top: 20px;
+    }
 }
+
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 600px) {
+    .memory-game {
+        max-width: 100%;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 5px;
+    }
+    
+    .grid .card {
+        height: 80px;
+        font-size: 50px;
+    }
+    
+    .text-right {
+        position: static;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .rules {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .restart-button {
+        position: static;
+        margin-top: 20px;
+    }
+}
+
