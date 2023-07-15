@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Memoria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/boot/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <audio id="background-audio" src="css/mp3/X2Download.app - Bemax - Ahegao (128 kbps).mp3" loop></audio>
+</head>
+<body>
+    <div class="memory-game">
+        <div class="grid">
+            <article class="rules">
+                <h3>Reglas del Juego</h3>
+                <p>Encuentra pares de cartas iguales volteándolas una por una.</p>
+                <p>Gana puntos al encontrar pares de cartas:</p>
+                <ul>
+                    <li>Si encuentras dos pares seguidos en menos de 5 segundos: +1000 puntos.</li>
+                    <li>Si encuentras un par en más de 3 segundos: +250 puntos.</li>
+                    <li>Bono de puntos por tiempo restante: Menos tiempo = más puntos.</li>
+                </ul>
+            </article>
+            <div class="text-right">
+                <div id="timer" class="counter counter-primary">00:00</div>
+                <div id="scoreboard" class="counter counter-success">Cartas acertadas: <span id="matches">0</span></div>
+                <div id="attempts" class="counter counter-danger">Intentos: <span id="total-attempts">0</span></div>
+                <div id="bonus" class="counter counter-warning">Bonus: <span id="bonus-points">0</span></div>
+                <div id="points" class="counter counter-info">Puntos: <span id="total-points">0</span></div>
+            </div>
+        </div>
+        <button class="restart-button btn btn-secondary" onclick="restartGame()">Reiniciar</button>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/boot/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
