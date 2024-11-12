@@ -5,8 +5,7 @@
     */
 
 const cards = [
-    '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼',
-    '🐯', '🦁', '🐮', '🐷', '🐸', '🐵', '🐔', '🐧'
+    '🐶', '🐱', '🐭', '🐹','🦁', '🐮', '🐷', '🐸', '🐵', '🐔'
 ];
 
 let selectedCardElements = [];
@@ -170,20 +169,30 @@ function formatElapsedTime(time) {
 
 // Calcula los puntos totales teniendo en cuenta el tiempo transcurrido y los intentos fallidos
 function calculatePoints(elapsedTime) {
-    const maxPoints = 1000;                     // Puntos bonus por encontrar cartas en menos de 3 segundos
-    const minPoints = 250;                      // Puntos mínimos al encontrar un par en más de 3 segundos
-    const bonusMultiplier = 0.2;                // Multiplicador para calcular los puntos de bonificación
-    const maxTime = 5500;                       // Tiempo máximo en milisegundos para obtener los puntos bonus (3 segundos)
-    let timePoints = maxPoints;                 // Puntos obtenidos por tiempo
-  
-    if (elapsedTime > maxTime) {
-      timePoints = Math.floor(maxPoints - ((elapsedTime - maxTime) * bonusMultiplier));
+    const maxPoints = 1000;                     // Puntos por acierto rápido
+    const minPoints = 250;                      // Puntos mínimos por acierto tardío
+    const maxTime = 3000;                       // Tiempo en milisegundos para puntaje máximo
+    const bonusMultiplier = 0.1;                // Multiplicador de puntos de bonificación
 
-    } 
-    bonusPoints += timePoints;                  // Sumar los puntos obtenidos por tiempo a los puntos de bonificación
-  
-    updatePointsDisplay();                      // Actualizar la visualización de los puntos
-  }
+    // Calcular puntos según el tiempo transcurrido
+    let pointsEarned;
+    if (elapsedTime <= maxTime) {
+        pointsEarned = maxPoints;
+    } else {
+        pointsEarned = Math.max(minPoints, maxPoints - ((elapsedTime - maxTime) / 10));
+    }
+
+    // Redondear los puntos calculados
+    pointsEarned = Math.round(pointsEarned);
+
+    // Actualizar los puntos totales y de bonificación, redondeando los resultados
+    totalPoints = Math.round(totalPoints + pointsEarned);
+    bonusPoints = Math.round(bonusPoints + (pointsEarned * bonusMultiplier));
+
+    // Actualizar el tablero de puntuación
+    updatePointsDisplay();
+}
+
   
 
 
